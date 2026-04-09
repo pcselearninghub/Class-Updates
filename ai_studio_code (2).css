@@ -1,0 +1,424 @@
+/* --- Variables & Reset --- */
+:root {
+    --primary: #002366; /* Royal Blue */
+    --accent: #D32F2F;  /* Red */
+    --light: #F4F7F9;
+    --white: #FFFFFF;
+    --dark: #333333;
+    --gray: #666666;
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--dark);
+    background-color: var(--white);
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section {
+    padding: 80px 0;
+}
+
+.bg-light {
+    background-color: var(--light);
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 40px;
+    color: var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* --- Navigation --- */
+.navbar {
+    background-color: var(--primary);
+    height: 70px;
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo {
+    color: var(--white);
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.logo span {
+    color: var(--accent);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li a {
+    color: var(--white);
+    text-decoration: none;
+    padding: 10px 15px;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.nav-links li a:hover {
+    color: var(--accent);
+}
+
+/* --- Mobile Menu --- */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: var(--white);
+    margin: 4px 0;
+    transition: 0.4s;
+}
+
+/* --- Hero Section --- */
+.hero {
+    height: 80vh;
+    background-color: var(--primary);
+    background-image: linear-gradient(rgba(0,35,102,0.8), rgba(0,35,102,0.8)), url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=1000'); /* Placeholder academic img */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--white);
+    padding: 0 20px;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto 30px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 15px 30px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: var(--transition);
+    margin: 10px;
+}
+
+.btn-red {
+    background-color: var(--accent);
+    color: var(--white);
+}
+
+.btn-red:hover {
+    background-color: #b71c1c;
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    border: 2px solid var(--white);
+    color: var(--white);
+}
+
+.btn-outline:hover {
+    background-color: var(--white);
+    color: var(--primary);
+}
+
+/* --- Timetable --- */
+.timetable-wrapper {
+    overflow-x: auto;
+    background: var(--white);
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.timetable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.timetable th {
+    background-color: var(--primary);
+    color: var(--white);
+    padding: 15px;
+    text-align: left;
+}
+
+.timetable td {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.day-label {
+    font-weight: bold;
+    background-color: #f9f9f9;
+    color: var(--primary);
+    width: 120px;
+}
+
+/* --- Updates --- */
+.update-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.update-card {
+    background: var(--white);
+    padding: 25px;
+    border-left: 5px solid var(--accent);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    transition: var(--transition);
+}
+
+.update-card:hover {
+    transform: translateY(-5px);
+}
+
+.update-date {
+    color: var(--gray);
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+
+.update-card h3 {
+    margin: 10px 0;
+    color: var(--primary);
+}
+
+/* --- Resources --- */
+.resource-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.res-btn {
+    background-color: var(--primary);
+    color: var(--white);
+    text-align: center;
+    padding: 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: var(--transition);
+}
+
+.res-btn:hover {
+    background-color: var(--accent);
+}
+
+/* --- Accordion (FAQ) --- */
+.accordion {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.accordion-item {
+    background: var(--white);
+    margin-bottom: 10px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.accordion-header {
+    width: 100%;
+    padding: 20px;
+    text-align: left;
+    background: none;
+    border: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    color: var(--primary);
+    display: flex;
+    justify-content: space-between;
+}
+
+.accordion-header::after {
+    content: '+';
+    font-size: 1.5rem;
+}
+
+.accordion-item.active .accordion-header::after {
+    content: '−';
+}
+
+.accordion-body {
+    padding: 0 20px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+.accordion-item.active .accordion-body {
+    padding: 0 20px 20px 20px;
+    max-height: 200px;
+}
+
+/* --- Contact --- */
+.contact-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.whatsapp-btn {
+    display: block;
+    padding: 18px;
+    text-align: center;
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.wa-coord { background-color: #25D366; }
+.wa-lecturer { background-color: #128C7E; }
+.wa-reg { background-color: var(--primary); }
+
+/* --- Footer --- */
+.footer {
+    background-color: var(--primary);
+    color: var(--white);
+    text-align: center;
+    padding: 30px;
+    margin-top: 50px;
+}
+
+/* --- Animations --- */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.appear {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- Responsive Media Queries --- */
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+    }
+
+    .nav-links {
+        position: fixed;
+        right: -100%;
+        top: 70px;
+        flex-direction: column;
+        background-color: var(--primary);
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+    }
+
+    .nav-links.active {
+        right: 0;
+    }
+
+    .nav-links li {
+        margin: 15px 0;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    /* Timetable to Cards on Mobile */
+    .timetable thead {
+        display: none;
+    }
+
+    .timetable, .timetable tbody, .timetable tr, .timetable td {
+        display: block;
+        width: 100%;
+    }
+
+    .timetable tr {
+        margin-bottom: 20px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+    }
+
+    .timetable td {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+    }
+
+    .day-label {
+        background-color: var(--primary) !important;
+        color: white !important;
+        text-align: center !important;
+        width: 100% !important;
+        padding-left: 15px !important;
+    }
+
+    .timetable td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 15px;
+        width: 45%;
+        text-align: left;
+        font-weight: bold;
+    }
+    
+    .timetable td:nth-child(2)::before { content: "Time:"; }
+    .timetable td:nth-child(3)::before { content: "Module:"; }
+}
